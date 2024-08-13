@@ -1,0 +1,120 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Análisis de resultados}
+\label{aresultados}
+En este capítulo se analizarán los resultados obtenidos hasta ahora, si bien no se ha terminado de culminar el proyecto, se mostrarán algunos de los resultados preliminares, tomando estos resultados como retroalimentación para mejorar los sistemas.
+
+\begin{figure}[H]
+    \centering	
+    \includegraphics[width=.8\textwidth]{img/Figure_1.png} 
+    \caption{Gráfica de estabilidad del sistema, ángulo deseado vs tiempo}
+	\label{fig:simulacionControlPython}
+\end{figure}
+
+La figura  \ref{fig:simulacionControlPython} muestra una gráfica obtenida de un programa que se ha realizado en Python en conjunto con la interfaz (figura \ref{fig:simulacionControlPython2}), en este programa se ingresa un ángulo deseado, el cual es enviado a través del puerto serial a la unidad de procesamiento, en este caso es un ESP32, una vez enviado el ángulo este comienza a activar los motores a diferentes velocidades con el objetivo de estabilizar el sistema en el ángulo proporcionado. Como se observa en la imagen, el algoritmo de control no cumple con su objetivo, ya que simplemente oscila y no logra mantener la estabilidad dada en el ángulo dado.
+
+\begin{figure}[H]
+    \centering	
+    \includegraphics[width=.8\textwidth]{img/Control.jpg} 
+    \caption{Programa de Python con interfaz y gráfica de estabilidad en tiempo real}
+	\label{fig:simulacionControlPython2}
+\end{figure}
+
+Esto sucede ya que el control fuzzy implementado contempla valores de 0 a 255, que son parámetros del ancho de pulso que requiere el puente H de los motores, sin embargo los motores solo se activan hasta tener un ancho de pulso mayor a 150, por lo que es necesario cambiar de controlador, que englobe valores más altos y ya no menores al valor dicho.
+Estos cambios se agregarán más adelante y se compararán con estos, para tener una mejor idea de como ha mejorado el controlador.
+
+\begin{figure}[H]
+    \centering	
+    \includegraphics[width=.8\textwidth]{img/Rplot.png} 
+    \caption{ Gráfica de estabilidad del sistema final}
+	\label{fig:simulacionControlR}
+\end{figure}
+
+%------------------------------------------------------
+\newpage
+\section{Análisis de costos} 
+En esta sección se analizarán los gastos directos, indirectos, la amortización así como el precio total del proyecto.
+%------------------------------------------------------
+
+\textbf{Costos directos}
+
+\begin{table}[H]
+\centering
+\caption{Costos directos}
+\begin{tabular}{p{4cm}|p{4cm}|p{4cm}}
+\hline
+\textbf{Componentes / Insumos }& \textbf{Cantidad} & \textbf{Costos} \\
+\hline
+Cabina de unicel&1&\$190\\
+\hline
+Escudo térmico, insulation&1 rollo&\$470\\
+\hline
+Filamento fibra de carbono&1&\$700\\
+\hline
+ESP32&2&\$300\\
+\hline
+Sensor de presión barométrica y temperatura&1&\$50\\
+\hline
+Placas de baquelita de 10x10 cm&1 paquete&\$160\\
+\hline
+Giroscopio MPU6050&1&\$65\\
+\hline
+Modulo GPS&1&\$200\\
+\hline
+Regulador de voltaje&1&\$45\\
+\hline
+Módulo GSM&1&\$140\\
+\hline
+Bateria lipo, 3s 1600mAh&1&\$700\\
+\hline
+Sensor humedad&1&\$165\\
+\hline
+Driver DRV8833&1&\$140\\
+\hline
+Hélices par&1&\$200\\
+\hline
+Cables estañados, calibre 22&1&\$220\\
+\hline
+Conectores JST-XH 2.0 mm&1&\$100\\
+\hline
+\textbf{Total:} & &\textbf{3845}\\
+
+\hline
+\end{tabular}
+\label{tabla:costosDirectos}
+\end{table}
+
+%-----------------------------------------------------
+
+\textbf{Costos indirectos}
+
+\begin{table}[H]
+\centering
+\caption{Costos indirectos}
+\begin{tabular}{p{6cm}|p{4cm}}
+\hline
+\textbf{Servicios } & \textbf{Costo} \\
+\hline
+Renta de servicio de luz &\$600\\
+\hline
+Insumos de alimentos&\$2000\\
+\hline
+Renta de internet&\$800\\
+
+\hline
+\end{tabular}
+\label{tabla:costosIndirectos}
+\end{table}
+
+%-----------------------------------------------------
+\textbf{Amortización}
+
+La amortización es un concepto contable que hace referencia a la pérdida de valor de un bien durante su vida útil. Se registra con la intención de reflejar el valor real de una propiedad, considerando el uso, desgaste y valor residual. 
+
+\begin{figure}[H]
+    \centering	
+    \includegraphics[width=.9\textwidth]{img/amortizacion.jpg} 
+    \caption{ Amortización del producto}
+	\label{fig:amortizacion}
+\end{figure}
+
+%-----------------------------------------------------

@@ -1,0 +1,132 @@
+%Book style with A4 paper, chapeters start on left page only, using times fonts
+\documentclass[12pt,a4paper,oneside]{book}		
+\usepackage{pdfpages}
+
+\usepackage{longtable}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\input{packages.tex}
+%\input{chapters/z_apendices.tex}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage{forest}
+
+\begin{document}
+\selectlanguage{spanish}
+% \selectlanguage{english}
+
+% Define o título da tese.
+\def\thesisTitle{Diseño y construcción de una cabina estratosférica con estabilizador para la recolección de datos y contenido multimedia} 
+
+% Defina o nome do(a) autor(a) (é o seu nome).
+\def\thesisAuthor{Chávez Urbano Erick, Niño Galindo Pamela Esmeralda, Diego Jimenez Martinez, Tomas Osorio de los Ángeles, Erick López Cruz} 
+
+% Defina o nome do(a) orientador(a) 
+\def\thesisAdvisor{Rebeca Hernández} 
+
+% Defina o nome do(a) co-orientador(a) 
+% Comente a linha abaixo se não tiver coorientador 
+\def\thesisCoAdvisor{Nome do(a) Coorientador(a)} 
+
+\pagestyle{empty}
+
+\include{cover/titulo} 
+
+
+
+%\include{cover/assinaturas} 
+
+% Includes page number at the bottom of the page.
+\pagestyle{plain}
+
+% Uses small roman numbers for page numbering.
+\pagenumbering{arabic} 				
+
+% Resets the page counter to 1.
+\setcounter{page}{1}
+
+%\include{cover/abstract}
+%\include{cover/resumo} 
+%\include{cover/prefacio} 
+%\include{cover/agradecimentos} 
+%\include{cover/dedicatoria} % opcional 
+
+
+%Prints the table of contents
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+%\addcontentsline{toc}{chapter}{Sumário}
+
+% Prints a list of tables
+\listoftables					
+\addcontentsline{toc}{chapter}{Índice de tablas}
+\clearpage
+
+
+% Prints a list of figures
+\listoffigures									
+\addcontentsline{toc}{chapter}{Índice de figuras}
+\cleardoublepage
+
+\clearpage
+
+% Describes the research line and how the thesis is related with it 
+%\include{cover/linha}
+
+% Prints a list of prizes and bibliographic and technical production 
+%\include{cover/producao}
+
+% Fancing heading alternating section and chapter with page count on the top
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage} 
+\fancyhead[RE,LO]{\nouppercase{\leftmark}} 
+\setlength{\headheight}{14.5pt}
+\cfoot{}
+
+\pagenumbering{arabic} 				
+% Uses arabic numbers (normal numbers) for page numbering.
+
+\setcounter{page}{1}
+% Resets the page counter to 1.
+
+% The chapters
+\include{chapters/a_introducao}
+\include{chapters/MarcoJuridico}
+
+
+
+
+\include{chapters/EstudioTecnico}
+\include{chapters/EstudioAdministrativoLegal}
+\include{chapters/Impacto_ambiental}
+\include{chapters/Estudio_evaluacion_economica}
+\include{chapter/Conclusiones.tex}
+
+
+%Without the word "section"
+\fancyhead[LO]{\nouppercase{\rightmark}} 
+%Añadimos las referncias
+\printbibliography[title=Referencias]
+
+\include{cover/Anexos}
+%\include{chapters/c_metodologia}
+%\include{chapters/disenoPreliminar}
+%\include{chapters/d_resultados}
+%\include{chapters/e_discussao}
+%\include{chapters/f_conclusoes}
+
+
+% Prints a list of abbreviations
+%\include{cover/Anexos}
+%\include{cover/refers}
+
+% Prints a list of symbols
+%\include{cover/simbolos}
+% To start appendices with different chapter numbering
+%\appendix
+
+%\fancyhead[LO]{\nouppercase{\rightmark}} 
+
+
+\end{document}
